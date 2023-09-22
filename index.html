@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Viewer</title>
+</head>
+<body>
+    <h1>JSON Data</h1>
+    <pre id="json-data"></pre>
+    <script>
+        fetch('data.json') // Replace with the correct path to your JSON file
+            .then(response => response.json())
+            .then(data => {
+                const jsonData = JSON.stringify(data, null, 2);
+                document.getElementById('json-data').textContent = jsonData;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
